@@ -1,7 +1,8 @@
 {
   "metadata": {
     "author": "rory watts",
-    "timestamp": "2022-10-03T10:09:00"
+    "timestamp": "2022-11-14T16:32:00",
+    "description": "RTI Kenya Model - Baseline"
   },
   "output": {
     "directory": "./output/",
@@ -11,6 +12,337 @@
     "start": 2021,
     "stop": 2061
   },
-  "nodes": [],
-  "links": []
+  "nodes": [
+    {
+      "id": "population",
+      "role": "generator",
+      "generation": {
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_population",
+          "arguments": {
+            "country": 404
+          }
+        }
+      }
+    },
+    {
+      "id": "incidence",
+      "role": "filter"
+    },
+    {
+      "id": "early stage - untreated",
+      "role": "filter"
+    },
+    {
+      "id": "late stage - untreated",
+      "role": "filter"
+    },
+    {
+      "id": "early stage - diagnosed",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Diagnosis without MG = Clinical presentation (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "late stage - diagnosed",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Diagnosis without MG = Clinical presentation (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage I - Staging",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Staging, pre-treatment care for Early Stage 1+2 (Level 1, Level 2), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage II - Staging",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Staging, pre-treatment care for Early Stage 1+2 (Level 1, Level 2), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage III - Staging",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Staging, pre-treatment carefor Stage 3 (Level 1, Level 2), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage IV - Staging",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Staging, pre-treatment carefor Stage 4 (Level 1, Level 2), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage I - Treatment",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Treatment for Stage 1 (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage II - Treatment",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Treatment for Stage 2 (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage III - Treatment",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Treatment for Stage 3 (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage IV - Treatment",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Treatment for Stage 4 (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage I - Management of Complications",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Management of Toxicity, Stage 1 (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage II - Management of Complications",
+      "role": "filter",
+      "views": {
+        "services": [
+          "management of toxicity, Stage 2 (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage III - Management of Complications",
+      "role": "filter",
+      "views": {
+        "services": [
+          "management of toxicity, Stage 3 (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage IV - Management of Complications",
+      "role": "filter",
+      "views": {
+        "services": [
+          "management of toxicity, Stage 4 (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage I - Surveillance",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Surveillance after treatment stage 1-3 (Level 1, Level 2), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage II - Surveillance",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Surveillance after treatment stage 1-3 (Level 1, Level 2), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage III - Surveillance",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Surveillance after treatment stage 1-3 (Level 1, Level 2), breast"
+        ]
+      }
+    },
+    {
+      "id": "Stage IV - Surveillance",
+      "role": "filter",
+      "views": {
+        "services": [
+          "disease monitoring stage 4 (Level 1, Level 2), breast"
+        ]
+      }
+    },
+    {
+      "id": "mortality",
+      "role": "mortality"
+    },
+    {
+      "id": "recovered",
+      "role": "recovered"
+    }
+  ],
+  "links": [
+    {
+      "source": "population",
+      "target": "incidence",
+      "transaction": {
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_incidence_rates",
+          "arguments": {
+            "country": 404,
+            "disease": "C50"
+          }
+        }
+      }
+    },
+    {
+      "source": "incidence",
+      "target": "early stage - untreated"
+    },
+    {
+      "source": "incidence",
+      "target": "late stage - untreated"
+    },
+    {
+      "source": "early stage - untreated",
+      "target": "early stage - diagnosed"
+    },
+    {
+      "source": "late stage - untreated",
+      "target": "late stage - diagnosed"
+    },
+    {
+      "source": "early stage - diagnosed",
+      "target": "Stage I - Staging"
+    },
+    {
+      "source": "early stage - diagnosed",
+      "target": "Stage II - Staging"
+    },
+    {
+      "source": "late stage - diagnosed",
+      "target": "Stage III - Staging"
+    },
+    {
+      "source": "late stage - diagnosed",
+      "target": "Stage IV - Staging"
+    },
+    {
+      "source": "Stage I - Staging",
+      "target": "Stage I - Treatment"
+    },
+    {
+      "source": "Stage II - Staging",
+      "target": "Stage II - Treatment"
+    },
+    {
+      "source": "Stage III - Staging",
+      "target": "Stage III - Treatment"
+    },
+    {
+      "source": "Stage IV - Staging",
+      "target": "Stage IV - Treatment"
+    },
+    {
+      "source": "Stage I - Treatment",
+      "target": "Stage I - Management of Complications"
+    },
+    {
+      "source": "Stage II - Treatment",
+      "target": "Stage II - Management of Complications"
+    },
+    {
+      "source": "Stage III - Treatment",
+      "target": "Stage III - Management of Complications"
+    },
+    {
+      "source": "Stage IV - Treatment",
+      "target": "Stage IV - Management of Complications"
+    },
+    {
+      "source": "Stage I - Management of Complications",
+      "target": "Stage I - Surveillance"
+    },
+    {
+      "source": "Stage II - Management of Complications",
+      "target": "Stage II - Surveillance"
+    },
+    {
+      "source": "Stage III - Management of Complications",
+      "target": "Stage III - Surveillance"
+    },
+    {
+      "source": "Stage IV - Management of Complications",
+      "target": "Stage IV - Surveillance"
+    },
+    {
+      "source": "early stage - untreated",
+      "target": "mortality"
+    },
+    {
+      "source": "late stage - untreated",
+      "target": "mortality"
+    },
+    {
+      "source": "Stage I - Surveillance",
+      "target": "mortality"
+    },
+    {
+      "source": "Stage II - Surveillance",
+      "target": "mortality"
+    },
+    {
+      "source": "Stage III - Surveillance",
+      "target": "mortality"
+    },
+    {
+      "source": "Stage IV - Surveillance",
+      "target": "mortality"
+    },
+    {
+      "source": "Stage I - Surveillance",
+      "target": "recovered"
+    },
+    {
+      "source": "Stage II - Surveillance",
+      "target": "recovered"
+    },
+    {
+      "source": "Stage III - Surveillance",
+      "target": "recovered"
+    },
+    {
+      "source": "Stage IV - Surveillance",
+      "target": "recovered"
+    }
+  ]
 }
