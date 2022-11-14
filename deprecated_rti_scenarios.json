@@ -1,0 +1,663 @@
+{
+    "global": {
+        "iso": "404",
+        "year start": "2021",
+        "year end": "2061",
+        "model type":"second order",
+        "summary statistics":[
+            "incidence",
+            "incidence by stage",
+            "dx by stage",
+            "Rx by stage",
+            "deaths",
+            "deaths by age",
+            "deaths by stage",
+            "deaths per case",
+            "mortality C50",
+            "recovered",
+            "tests - eac",
+            "tests - mg screening",
+            "tests - cbe screening",
+            "disability"
+        ],
+        "add scenario":["worst case"]
+    },
+    "calibration":{
+        "C50": {
+            "Description":"Calibrated to GLOBOCAN incidence and mortality",
+            "interventions": {
+                "Diagnosed to Treated (Coverage Rate)": {
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start":0.6
+                    },
+                    "cohort": {}
+                },
+                "Treatment": {
+                    "movement": "Treatment",
+                    "effect": 1,
+                    "dynamics": {},
+                    "cohort": {}
+                }
+            },
+            "prevalence": {
+                "measurement": 5,
+                "distribution": [0.05, 0.26, 0.31, 0.38],
+                "state": [0, 0, 0.4, 0.6]
+            },
+            "transition rate scalar": 0.902059,
+            "incidence scalar": 1.0255,
+            "stage distribution":[0.05, 0.26, 0.31, 0.38]
+        }
+    },
+    "0":{
+        "C50": {
+            "Description":"Calibrated to GLOBOCAN incidence and mortality",
+            "interventions": {
+                "Diagnosed to Treated (Coverage Rate)": {
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start":0.6
+                    },
+                    "cohort": {}
+                },
+                "Treatment": {
+                    "movement": "Treatment",
+                    "effect": 1,
+                    "dynamics": {},
+                    "cohort": {}
+                }
+            },
+            "transition rate scalar": 0.902059,
+            "incidence scalar": 1.0255,
+            "stage distribution":[0.05, 0.26, 0.31, 0.38],
+            "prevalence": {
+                "measurement": 5,
+                "distribution": [0.05, 0.26, 0.31, 0.38],
+                "state": [0, 0, 0.4, 0.6]
+            }
+        }
+    },
+    "1":{
+        "C50": {
+            "Description":"Status quo scenario",
+            "interventions": {
+                "TUR Baseline": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start": 0.6,
+                        "coverage year start":"2021",
+                        "coverage year end":"2022"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "TUR Scale-Up": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start": 0.6,
+                        "coverage end":0.9,
+                        "coverage year start":"2022",
+                        "coverage year end":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "TUR Maintenance": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start":0.9,
+                        "coverage year start":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "Treatment": {
+                    "movement": "Treatment",
+                    "effect": 1,
+                    "dynamics": {},
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "PalCare Baseline": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start": 0.42,
+                        "coverage year end":"2022"
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                },
+                "PalCare Scale-Up": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start": 0.42,
+                        "coverage end":0.8,
+                        "coverage year start":"2022",
+                        "coverage year end":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                },
+                "PalCare Maintenance": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start":0.8,
+                        "coverage year start":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                }
+            },
+            "transition rate scalar": 0.902059,
+            "incidence scalar": 1.0255,
+            "stage distribution":[0.05, 0.26, 0.31, 0.38],
+            "prevalence": {
+                "measurement": 5,
+                "distribution": [0.05, 0.26, 0.31, 0.38],
+                "state": [0, 0, 0.4, 0.6]
+            }
+        }
+    },
+    "2":{
+        "C50": {
+            "Description":"Status quo + early awareness campaign",
+            "interventions": {
+                "TUR Baseline": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start": 0.6,
+                        "coverage year start":"2021",
+                        "coverage year end":"2022"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "TUR Scale-Up": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start": 0.6,
+                        "coverage end":0.9,
+                        "coverage year start":"2022",
+                        "coverage year end":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "TUR Maintenance": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start":0.9,
+                        "coverage year start":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "Treatment": {
+                    "movement": "Treatment",
+                    "effect": 1,
+                    "dynamics": {},
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "EAC-ScaleUp": {
+                    "movement": "Stage Shift",
+                    "notes": "Early stage moves from 31 to 47% during year 0 and year 1",
+                    "effect":0.50,
+                    "dynamics": {
+                        "coverage start":0,
+                        "coverage end":1,
+                        "coverage year start":"2022",
+                        "coverage year end":"2027"
+                    }
+                },
+                "EAC-Maintenance": {
+                    "movement": "Stage Shift",
+                    "notes": "Stage shift continues",
+                    "effect":0.50,
+                    "dynamics": {
+                        "coverage year start":"2027"
+                    }
+                },
+                "Palliative Care": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start": 0.42,
+                        "coverage end":0.8
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                }
+            },
+            "transition rate scalar": 0.902059,
+            "incidence scalar": 1.0255,
+            "stage distribution":[0.05, 0.26, 0.31, 0.38],
+            "prevalence": {
+                "measurement": 5,
+                "distribution": [0.05, 0.26, 0.31, 0.38],
+                "state": [ 0, 0, 0.4, 0.6]
+            }
+        }
+    },
+    "3a":{
+        "C50": {
+            "Description":"Status quo + early awareness campaign + Mammogram led screening",
+            "interventions": {
+                "TUR Baseline": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start": 0.6,
+                        "coverage year start":"2021",
+                        "coverage year end":"2022"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "TUR Scale-Up": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start": 0.6,
+                        "coverage end":0.9,
+                        "coverage year start":"2022",
+                        "coverage year end":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "TUR Maintenance": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start":0.9,
+                        "coverage year start":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "Treatment": {
+                    "movement": "Treatment",
+                    "effect": 1,
+                    "dynamics": {},
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "EAC": {
+                    "movement": "Stage Shift",
+                    "effect":0.50,
+                    "dynamics": {
+                        "coverage year start":"2022",
+                        "coverage year end":"2027",
+                        "coverage start":0,
+                        "coverage end":1
+                    }
+                },
+                "Sc-Mg-Scale": {
+                    "movement": "Stage Shift",
+                    "effect":0.69,
+                    "dynamics": {
+                        "coverage start":0,
+                        "coverage end":1,
+                        "coverage year start":"2027",
+                        "coverage year end":"2037"
+                    }
+                },
+                "Sc-Mg-Maintain": {
+                    "movement": "Stage Shift",
+                    "notes": "Maintenance phase - screening doesn't increase beyond 70% coverage",
+                    "notes2":"Effect increases 0.23188 units per percentage coverage",
+                    "effect":0.69,
+                    "dynamics": {
+                        "coverage year start":"2037"
+                    }
+                },
+                "PalCare Baseline": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start": 0.42,
+                        "coverage year end":"2022"
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                },
+                "PalCare Scale-Up": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start": 0.42,
+                        "coverage end":0.8,
+                        "coverage year start":"2022",
+                        "coverage year end":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                },
+                "PalCare Maintenance": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start":0.8,
+                        "coverage year start":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                }
+            },
+            "transition rate scalar": 0.902059,
+            "incidence scalar": 1.0255,
+            "stage distribution":[0.05, 0.26, 0.31, 0.38],
+            "prevalence": {
+                "measurement": 5,
+                "distribution": [0.05, 0.26, 0.31, 0.38],
+                "state": [0, 0, 0.4, 0.6]
+            }
+        }
+    },
+    "3b":{
+        "C50": {
+            "Description":"Status quo + early awareness campaign + clinical breast exam led screening",
+            "interventions": {
+                "TUR Baseline": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start": 0.6,
+                        "coverage year start":"2022",
+                        "coverage year end":"2022"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "TUR Scale-Up": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start": 0.6,
+                        "coverage end":0.9,
+                        "coverage year start":"2022",
+                        "coverage year end":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "TUR Maintenance": {
+                    "notes": "cancer treatment initiation rates increase linearly from 60 to 90 percent",
+                    "movement": "Treatment Uptake",
+                    "effect": 1,
+                    "dynamics": {
+                        "coverage start":0.9,
+                        "coverage year start":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "Treatment": {
+                    "movement": "Treatment",
+                    "effect": 1,
+                    "dynamics": {},
+                    "cohort": {
+                        "subset": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                "EAC": {
+                    "movement": "Stage Shift",
+                    "effect":0.50,
+                    "dynamics": {
+                        "coverage year start":"2021",
+                        "coverage year end":"2027",
+                        "coverage start":0,
+                        "coverage end":1
+                    }
+                },
+                "Scr-CBE-Scale": {
+                    "movement": "Stage Shift",
+                    "effect":0.63,
+                    "dynamics": {
+                        "coverage start":0,
+                        "coverage end": 1,
+                        "coverage year start":"2027",
+                        "coverage year end":"2037"
+                    }
+                },
+                "Scr-CBE-Maintain": {
+                    "movement": "Stage Shift",
+                    "notes": "Maintenance phase - screening doesn't increase beyond 70% coverage",
+                    "effect":0.63,
+                    "dynamics": {
+                        "coverage year start":"2037"
+                    }
+                },
+                "PalCare Baseline": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start": 0.42,
+                        "coverage year end":"2022"
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                },
+                "PalCare Scale-Up": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start": 0.42,
+                        "coverage end":0.8,
+                        "coverage year start":"2022",
+                        "coverage year end":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                },
+                "PalCare Maintenance": {
+                    "notes": "42 to 80 percent",
+                    "movement": "Palliative Care",
+                    "effect": 0.5,
+                    "dynamics": {
+                        "coverage start":0.8,
+                        "coverage year start":"2030"
+                    },
+                    "cohort": {
+                        "subset": [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                }
+            },
+            "transition rate scalar": 0.902059,
+            "incidence scalar": 1.0255,
+            "stage distribution":[0.05, 0.26, 0.31, 0.38],
+            "prevalence": {
+                "measurement": 5,
+                "distribution": [0.05, 0.26, 0.31, 0.38],
+                "state": [0, 0, 0.4, 0.6]
+            }
+        }
+    }
+}
