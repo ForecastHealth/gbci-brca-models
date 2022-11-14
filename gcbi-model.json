@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "author": "rory watts",
+    "timestamp": "2022-10-03T10:09:00"
+  },
+  "output": {
+    "directory": "./output/",
+    "label": "RTI_recreation_baseline"
+  },
+  "globals": {
+    "start": 2021,
+    "stop": 2061
+  },
+  "nodes": [],
+  "links": []
+}
