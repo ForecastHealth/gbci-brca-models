@@ -1,7 +1,25 @@
-# The GCBI Breast Cancer Screening Model
+# The GCBI Breast Cancer Model
 Author: Rory Watts, Forecast Health Australia
 
-This is a small set of documentation about the GCBI Breast Cancer Screening Model. 
+This is a document providing information about the GCBI Breast Cancer Screening Model. 
 
-## Context
+## Overview
+The GCBI Breast Cancer model is a deterministic model which describes the costs and health impacts of implementing various early-detection strategies, including early-awareness campaigns, clinical breast examination, and mammographic screening. The model is deterministic, meaning that we effectively dictate what will happen during the running of the model. The basis of the deterministic model are inputs, which are obtained through a review of the relevant literature, and this may be updated from time to time. 
 
+## The scenarios
+There are four scenarios which are modelled:
+1. Baseline
+2. Baseline + early awareness campaign
+3. Baseline + early awareness campaign + screening
+  a. Where screening is led by mammography
+  b. Where screening is led by clinical breast exam
+
+These four scenarios can be compared incrementally, meaning you can subtract a scenario from another scenario to see the incremental difference in costs and health impacts.
+- Scenario 2 - Scenario 1 = Incremental costs and impact of early awareness campaigns
+- Scenario 3 - Scenario 2 = Incremental costs and impact of screening
+
+## 1 - The Baseline scenario
+## 2 - The early awareness campaign scenario
+## 3 - The screening scenarios
+### 3a - Mammography led screening
+### 3b - Clinical breast exam led screening
