@@ -1,0 +1,879 @@
+{
+  "metadata": {
+    "author": "Rory Watts",
+    "timestamp": "2022-11-14T16:32:00",
+    "description": "RTI Kenya Model Recreation - Baseline"
+  },
+  "output": {
+    "directory": "./output/",
+    "label": "RTI_recreation_baseline"
+  },
+  "globals": {
+    "start": 2021,
+    "stop": 2061
+  },
+  "nodes": [
+    {
+      "id": "population",
+      "role": "generator",
+      "generation": {
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_population",
+          "arguments": {
+            "country": 404
+          }
+        }
+      }
+    },
+    {
+      "id": "incidence",
+      "role": "filter",
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage I - Undiagnosed",
+      "role": "filter",
+      "hooks": [
+        "ageing"
+      ],
+      "views": {
+        "disability": {
+          "weight": 0.29
+        }
+      }
+    },
+    {
+      "id": "Stage II - Undiagnosed",
+      "role": "filter",
+      "hooks": [
+        "ageing"
+      ],
+      "views": {
+        "disability": {
+          "weight": 0.29
+        }
+      }
+    },
+    {
+      "id": "Stage III - Undiagnosed",
+      "role": "filter",
+      "hooks": [
+        "ageing"
+      ],
+      "views": {
+        "disability": {
+          "weight": 0.29
+        }
+      }
+    },
+    {
+      "id": "Stage IV - Undiagnosed",
+      "role": "filter",
+      "hooks": [
+        "ageing"
+      ],
+      "views": {
+        "disability": {
+          "weight": 0.54
+        }
+      }
+    },
+    {
+      "id": "Stage I - Diagnosed",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Diagnosis without MG = Clinical presentation (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage II - Diagnosed",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Diagnosis without MG = Clinical presentation (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage III - Diagnosed",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Diagnosis without MG = Clinical presentation (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage IV - Diagnosed",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Diagnosis without MG = Clinical presentation (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.54
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage I - Staging",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Staging, pre-treatment care for Early Stage 1+2 (Level 1, Level 2), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage II - Staging",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Staging, pre-treatment care for Early Stage 1+2 (Level 1, Level 2), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage III - Staging",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Staging, pre-treatment carefor Stage 3 (Level 1, Level 2), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage IV - Staging",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Staging, pre-treatment carefor Stage 4 (Level 1, Level 2), breast"
+        ],
+        "disability": {
+          "weight": 0.54
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage I - Treatment",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Treatment for Stage 1 (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage II - Treatment",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Treatment for Stage 2 (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage III - Treatment",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Treatment for Stage 3 (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage IV - Treatment",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Treatment for Stage 4 (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.45
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage I - Management of Complications",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Management of Toxicity, Stage 1 (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage II - Management of Complications",
+      "role": "filter",
+      "views": {
+        "services": [
+          "management of toxicity, Stage 2 (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage III - Management of Complications",
+      "role": "filter",
+      "views": {
+        "services": [
+          "management of toxicity, Stage 3 (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage IV - Management of Complications",
+      "role": "filter",
+      "views": {
+        "services": [
+          "management of toxicity, Stage 4 (Level 1), breast"
+        ],
+        "disability": {
+          "weight": 0.45
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage I - Surveillance",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Surveillance after treatment stage 1-3 (Level 1, Level 2), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage II - Surveillance",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Surveillance after treatment stage 1-3 (Level 1, Level 2), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage III - Surveillance",
+      "role": "filter",
+      "views": {
+        "services": [
+          "Surveillance after treatment stage 1-3 (Level 1, Level 2), breast"
+        ],
+        "disability": {
+          "weight": 0.29
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "Stage IV - Surveillance",
+      "role": "filter",
+      "views": {
+        "services": [
+          "disease monitoring stage 4 (Level 1, Level 2), breast"
+        ],
+        "disability": {
+          "weight": 0.45
+        }
+      },
+      "hooks": [
+        "ageing"
+      ]
+    },
+    {
+      "id": "mortality",
+      "role": "mortality",
+      "views": {
+        "disability": {
+          "weight": 1
+        }
+      }
+    },
+    {
+      "id": "recovered",
+      "role": "recovered",
+      "hooks": [
+        "ageing"
+      ],
+      "views": {
+        "disability": {
+          "weight": 0.04
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "source": "population",
+      "target": "incidence",
+      "transaction": {
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_incidence_rates",
+          "arguments": {
+            "country": 404,
+            "disease": "C50"
+          }
+        }
+      }
+    },
+    {
+      "source": "incidence",
+      "target": "Stage I - Undiagnosed",
+      "transaction": {
+        "description": "Stage distribution Stage I",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.05
+        }
+      }
+    },
+    {
+      "source": "incidence",
+      "target": "Stage II - Undiagnosed",
+      "transaction": {
+        "description": "Stage distribution Stage II",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.26
+        }
+      }
+    },
+    {
+      "source": "incidence",
+      "target": "Stage III - Undiagnosed",
+      "transaction": {
+        "description": "Stage distribution Stage III",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.31
+        }
+      }
+    },
+    {
+      "source": "incidence",
+      "target": "Stage IV - Undiagnosed",
+      "transaction": {
+        "description": "Stage distribution Stage IV",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.38
+        }
+      }
+    },
+    {
+      "source": "Stage I - Undiagnosed",
+      "target": "Stage I - Diagnosed",
+      "transaction": {
+        "description": "coverage rate without screening",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.6
+        }
+      }
+    },
+    {
+      "source": "Stage II - Undiagnosed",
+      "target": "Stage II - Diagnosed",
+      "transaction": {
+        "description": "coverage rate without screening",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.6
+        }
+      }
+    },
+    {
+      "source": "Stage III - Undiagnosed",
+      "target": "Stage III - Diagnosed",
+      "transaction": {
+        "description": "coverage rate without screening",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.6
+        }
+      }
+    },
+    {
+      "source": "Stage IV - Undiagnosed",
+      "target": "Stage IV - Diagnosed",
+      "transaction": {
+        "description": "coverage rate without screening",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.6
+        }
+      }
+    },
+    {
+      "source": "Stage I - Diagnosed",
+      "target": "Stage I - Staging",
+      "transaction": {
+        "description": "proportion moving from diagnosis to staging",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage II - Diagnosed",
+      "target": "Stage II - Staging",
+      "transaction": {
+        "description": "proportion moving from diagnosis to staging",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage III - Diagnosed",
+      "target": "Stage III - Staging",
+      "transaction": {
+        "description": "proportion moving from diagnosis to staging",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage IV - Diagnosed",
+      "target": "Stage IV - Staging",
+      "transaction": {
+        "description": "proportion moving from diagnosis to staging",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage I - Staging",
+      "target": "Stage I - Treatment",
+      "transaction": {
+        "description": "proportion moving from staging to treatment",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage II - Staging",
+      "target": "Stage II - Treatment",
+      "transaction": {
+        "description": "proportion moving from staging to treatment",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage III - Staging",
+      "target": "Stage III - Treatment",
+      "transaction": {
+        "description": "proportion moving from staging to treatment",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage IV - Staging",
+      "target": "Stage IV - Treatment",
+      "transaction": {
+        "description": "proportion moving from staging to treatment",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage I - Treatment",
+      "target": "Stage I - Management of Complications",
+      "transaction": {
+        "description": "proportion moving from treatment to management",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage II - Treatment",
+      "target": "Stage II - Management of Complications",
+      "transaction": {
+        "description": "proportion moving from treatment to management",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage III - Treatment",
+      "target": "Stage III - Management of Complications",
+      "transaction": {
+        "description": "proportion moving from treatment to management",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage IV - Treatment",
+      "target": "Stage IV - Management of Complications",
+      "transaction": {
+        "description": "proportion moving from treatment to management",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage I - Management of Complications",
+      "target": "Stage I - Surveillance",
+      "transaction": {
+        "description": "proportion moving from management to surveillance",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage II - Management of Complications",
+      "target": "Stage II - Surveillance",
+      "transaction": {
+        "description": "proportion moving from management to surveillance",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage III - Management of Complications",
+      "target": "Stage III - Surveillance",
+      "transaction": {
+        "description": "proportion moving from management to surveillance",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage IV - Management of Complications",
+      "target": "Stage IV - Surveillance",
+      "transaction": {
+        "description": "proportion moving from management to surveillance",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "Stage I - Undiagnosed",
+      "target": "mortality",
+      "transaction": {
+        "description": "undiagnosed mortality rate",
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_mortality_rates",
+          "arguments": {
+            "disease": "C50",
+            "stage": 1,
+            "programme": 0,
+            "fit": true
+          }
+        }
+      }
+    },
+    {
+      "source": "Stage II - Undiagnosed",
+      "target": "mortality",
+      "transaction": {
+        "description": "undiagnosed mortality rate",
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_mortality_rates",
+          "arguments": {
+            "disease": "C50",
+            "stage": 2,
+            "programme": 0,
+            "fit": true
+          }
+        }
+      }
+    },
+    {
+      "source": "Stage III - Undiagnosed",
+      "target": "mortality",
+      "transaction": {
+        "description": "undiagnosed mortality rate",
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_mortality_rates",
+          "arguments": {
+            "disease": "C50",
+            "stage": 3,
+            "programme": 0,
+            "fit": true
+          }
+        }
+      }
+    },
+    {
+      "source": "Stage IV - Undiagnosed",
+      "target": "mortality",
+      "transaction": {
+        "description": "undiagnosed mortality rate",
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_mortality_rates",
+          "arguments": {
+            "disease": "C50",
+            "stage": 4,
+            "programme": 0,
+            "fit": true
+          }
+        }
+      }
+    },
+    {
+      "source": "Stage I - Surveillance",
+      "target": "mortality",
+      "transaction": {
+        "description": "treated mortality rate",
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_mortality_rates",
+          "arguments": {
+            "disease": "C50",
+            "stage": 1,
+            "programme": 1,
+            "fit": true
+          }
+        }
+      }
+    },
+    {
+      "source": "Stage II - Surveillance",
+      "target": "mortality",
+      "transaction": {
+        "description": "treated mortality rate",
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_mortality_rates",
+          "arguments": {
+            "disease": "C50",
+            "stage": 2,
+            "programme": 1,
+            "fit": true
+          }
+        }
+      }
+    },
+    {
+      "source": "Stage III - Surveillance",
+      "target": "mortality",
+      "transaction": {
+        "description": "treated mortality rate",
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_mortality_rates",
+          "arguments": {
+            "disease": "C50",
+            "stage": 3,
+            "programme": 1,
+            "fit": true
+          }
+        }
+      }
+    },
+    {
+      "source": "Stage IV - Surveillance",
+      "target": "mortality",
+      "transaction": {
+        "description": "treated mortality rate",
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_mortality_rates",
+          "arguments": {
+            "disease": "C50",
+            "stage": 4,
+            "programme": 1,
+            "fit": true
+          }
+        }
+      }
+    },
+    {
+      "source": "Stage I - Surveillance",
+      "target": "recovered",
+      "transaction": {
+        "description": "treated recovery rate",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.2
+        }
+      }
+    },
+    {
+      "source": "Stage II - Surveillance",
+      "target": "recovered",
+      "transaction": {
+        "description": "treated recovery rate",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.2
+        }
+      }
+    },
+    {
+      "source": "Stage III - Surveillance",
+      "target": "recovered",
+      "transaction": {
+        "description": "treated recovery rate",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.2
+        }
+      }
+    },
+    {
+      "source": "Stage IV - Surveillance",
+      "target": "recovered",
+      "transaction": {
+        "description": "treated recovery rate",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.2
+        }
+      }
+    },
+    {
+      "source": "recovered",
+      "target": "mortality",
+      "transaction": {
+        "method": "file",
+        "kwargs": {
+          "server_function_name": "serve_lifetable_mortality",
+          "arguments": {
+            "country": 404
+          }
+        }
+      }
+    }
+  ]
+}
