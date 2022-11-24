@@ -1,7 +1,6 @@
-# The GCBI Breast Cancer Model
-Author: Rory Watts, Forecast Health Australia
-
-This is a document providing information about the GCBI Breast Cancer Screening Model. 
+# GCBI Breast Cancer Models
+This is a document providing information about the GCBI Breast Cancer Models.
+Note - these models require a set of Python utilities to run, which are not currently available to the public. 
 
 ## Overview
 The GCBI Breast Cancer model is a deterministic model which describes the costs and health impacts of implementing various early-detection strategies, including early-awareness campaigns, clinical breast examination, and mammographic screening. The model is deterministic, meaning that we effectively dictate what will happen during the running of the model. The basis of the deterministic model are inputs, which are obtained through a review of the relevant literature, and this may be updated from time to time. 

@@ -1,0 +1,133 @@
+title = "GCBI Breast Cancer Models"
+
+[metadata]
+author = ["GCBI", "Rory Watts"]
+timestamp = 2022-11-24T09:49:00
+
+[input]
+directory = "../gcbi-breast-cancer-model/input/"
+individual = ["gcbi_baseline.json"]
+comparisons = []
+
+[output]
+directory = "../tmp/"
+filetypes = [".zip", ".xlsx", ".html"]
+
+[[results]]
+label = "Assumptions per year"
+view = "assumptions"
+[results.arguments]
+aggfunc = "mean"
+values = ["value"]
+index = ["node"]
+columns = ["time"]
+
+[[results]]
+label = "Inflow into states per year"
+view = "epi"
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["account", "node"]
+columns = ["time"]
+[results.build.filters]
+accounts = ["inflow"]
+
+[[results]]
+label = "Persons in states per year"
+view = "epi"
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["account", "node"]
+columns = ["time"]
+[results.build.filters]
+accounts = ["recorded_balance"]
+
+[[results]]
+label = "Yearly health gain per node"
+view = "health gain"
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["account", "node"]
+columns = ["time"]
+[results.build.filters]
+accounts = ["recorded_balance"]
+
+[[results]]
+label = "Cumulative total health gain per year"
+view = "health gain"
+cumulative = true
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["account"]
+columns = ["time"]
+[results.build.filters]
+accounts = ["recorded_balance"]
+
+[[results]]
+label = "Yearly resource use"
+view = "resources"
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["resource"]
+columns = ["time"]
+
+[[results]]
+label = "Cumulative resource use per year"
+view = "resources"
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["resource"]
+columns = ["time"]
+
+[[results]]
+label = "Yearly cost of resource use"
+view = "costs"
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["resource"]
+columns = ["time"]
+
+[[results]]
+label = "Cumulative cost of resource use per year"
+view = "costs"
+cumulative = true
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["resource"]
+columns = ["time"]
+
+[[results]]
+label = "Yearly cost per category"
+view = "costs"
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["category"]
+columns = ["time"]
+
+[[results]]
+label = "Yearly cost per node"
+view = "costs"
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["node"]
+columns = ["time"]
+
+[[results]]
+label = "Cumulative cost of resource category per year"
+view = "costs"
+cumulative = true
+[results.arguments]
+aggfunc = "sum"
+values = ["value"]
+index = ["category"]
+columns = ["time"]

@@ -5,7 +5,7 @@
     "description": "RTI Kenya Model Recreation - Baseline"
   },
   "output": {
-    "directory": "./output/",
+    "directory": "../tmp/",
     "label": "RTI_recreation_baseline"
   },
   "globals": {
@@ -16,14 +16,12 @@
     {
       "id": "population",
       "role": "generator",
+      "properties": {
+        "country": 404
+      },
       "generation": {
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_population",
-          "arguments": {
-            "country": 404
-          }
-        }
+        "function": "serve_population"
       }
     },
     {
@@ -84,6 +82,10 @@
     {
       "id": "Stage I - Diagnosed",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Diagnosis without MG = Clinical presentation (Level 1), breast"
@@ -99,6 +101,10 @@
     {
       "id": "Stage II - Diagnosed",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Diagnosis without MG = Clinical presentation (Level 1), breast"
@@ -114,6 +120,10 @@
     {
       "id": "Stage III - Diagnosed",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Diagnosis without MG = Clinical presentation (Level 1), breast"
@@ -129,6 +139,10 @@
     {
       "id": "Stage IV - Diagnosed",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Diagnosis without MG = Clinical presentation (Level 1), breast"
@@ -144,6 +158,10 @@
     {
       "id": "Stage I - Staging",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Staging, pre-treatment care for Early Stage 1+2 (Level 1, Level 2), breast"
@@ -159,6 +177,10 @@
     {
       "id": "Stage II - Staging",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Staging, pre-treatment care for Early Stage 1+2 (Level 1, Level 2), breast"
@@ -174,6 +196,10 @@
     {
       "id": "Stage III - Staging",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Staging, pre-treatment carefor Stage 3 (Level 1, Level 2), breast"
@@ -189,6 +215,10 @@
     {
       "id": "Stage IV - Staging",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Staging, pre-treatment carefor Stage 4 (Level 1, Level 2), breast"
@@ -204,6 +234,10 @@
     {
       "id": "Stage I - Treatment",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Treatment for Stage 1 (Level 1), breast"
@@ -219,6 +253,10 @@
     {
       "id": "Stage II - Treatment",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Treatment for Stage 2 (Level 1), breast"
@@ -234,6 +272,10 @@
     {
       "id": "Stage III - Treatment",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Treatment for Stage 3 (Level 1), breast"
@@ -249,6 +291,10 @@
     {
       "id": "Stage IV - Treatment",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Treatment for Stage 4 (Level 1), breast"
@@ -264,6 +310,10 @@
     {
       "id": "Stage I - Management of Complications",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Management of Toxicity, Stage 1 (Level 1), breast"
@@ -279,6 +329,10 @@
     {
       "id": "Stage II - Management of Complications",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "management of toxicity, Stage 2 (Level 1), breast"
@@ -294,6 +348,10 @@
     {
       "id": "Stage III - Management of Complications",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "management of toxicity, Stage 3 (Level 1), breast"
@@ -309,6 +367,10 @@
     {
       "id": "Stage IV - Management of Complications",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "management of toxicity, Stage 4 (Level 1), breast"
@@ -324,6 +386,10 @@
     {
       "id": "Stage I - Surveillance",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Surveillance after treatment stage 1-3 (Level 1, Level 2), breast"
@@ -339,6 +405,10 @@
     {
       "id": "Stage II - Surveillance",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Surveillance after treatment stage 1-3 (Level 1, Level 2), breast"
@@ -354,6 +424,10 @@
     {
       "id": "Stage III - Surveillance",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "Surveillance after treatment stage 1-3 (Level 1, Level 2), breast"
@@ -369,6 +443,10 @@
     {
       "id": "Stage IV - Surveillance",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "views": {
         "services": [
           "disease monitoring stage 4 (Level 1, Level 2), breast"
@@ -407,15 +485,13 @@
     {
       "source": "population",
       "target": "incidence",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "transaction": {
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_incidence_rates",
-          "arguments": {
-            "country": 404,
-            "disease": "C50"
-          }
-        }
+        "function": "serve_incidence_rates"
       }
     },
     {
@@ -685,137 +761,121 @@
     {
       "source": "Stage I - Undiagnosed",
       "target": "mortality",
+      "properties": {
+        "disease": "C50",
+        "stage": 1,
+        "programme": 0,
+        "fit": true
+      },
       "transaction": {
         "description": "undiagnosed mortality rate",
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_mortality_rates",
-          "arguments": {
-            "disease": "C50",
-            "stage": 1,
-            "programme": 0,
-            "fit": true
-          }
-        }
+        "function": "serve_mortality_rates"
       }
     },
     {
       "source": "Stage II - Undiagnosed",
       "target": "mortality",
+      "properties": {
+        "disease": "C50",
+        "stage": 2,
+        "programme": 0,
+        "fit": true
+      },
       "transaction": {
         "description": "undiagnosed mortality rate",
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_mortality_rates",
-          "arguments": {
-            "disease": "C50",
-            "stage": 2,
-            "programme": 0,
-            "fit": true
-          }
-        }
+        "function": "serve_mortality_rates"
       }
     },
     {
       "source": "Stage III - Undiagnosed",
       "target": "mortality",
+      "properties": {
+        "disease": "C50",
+        "stage": 3,
+        "programme": 0,
+        "fit": true
+      },
       "transaction": {
         "description": "undiagnosed mortality rate",
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_mortality_rates",
-          "arguments": {
-            "disease": "C50",
-            "stage": 3,
-            "programme": 0,
-            "fit": true
-          }
-        }
+        "function": "serve_mortality_rates"
       }
     },
     {
       "source": "Stage IV - Undiagnosed",
       "target": "mortality",
+      "properties": {
+        "disease": "C50",
+        "stage": 4,
+        "programme": 0,
+        "fit": true
+      },
       "transaction": {
         "description": "undiagnosed mortality rate",
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_mortality_rates",
-          "arguments": {
-            "disease": "C50",
-            "stage": 4,
-            "programme": 0,
-            "fit": true
-          }
-        }
+        "function": "serve_mortality_rates"
       }
     },
     {
       "source": "Stage I - Surveillance",
       "target": "mortality",
+      "properties": {
+        "disease": "C50",
+        "stage": 1,
+        "programme": 1,
+        "fit": true
+      },
       "transaction": {
         "description": "treated mortality rate",
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_mortality_rates",
-          "arguments": {
-            "disease": "C50",
-            "stage": 1,
-            "programme": 1,
-            "fit": true
-          }
-        }
+        "function": "serve_mortality_rates"
       }
     },
     {
       "source": "Stage II - Surveillance",
       "target": "mortality",
+      "properties": {
+        "disease": "C50",
+        "stage": 2,
+        "programme": 1,
+        "fit": true
+      },
       "transaction": {
         "description": "treated mortality rate",
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_mortality_rates",
-          "arguments": {
-            "disease": "C50",
-            "stage": 2,
-            "programme": 1,
-            "fit": true
-          }
-        }
+        "function": "serve_mortality_rates"
       }
     },
     {
       "source": "Stage III - Surveillance",
       "target": "mortality",
+      "properties": {
+        "disease": "C50",
+        "stage": 3,
+        "programme": 1,
+        "fit": true
+      },
       "transaction": {
         "description": "treated mortality rate",
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_mortality_rates",
-          "arguments": {
-            "disease": "C50",
-            "stage": 3,
-            "programme": 1,
-            "fit": true
-          }
-        }
+        "function": "serve_mortality_rates"
       }
     },
     {
       "source": "Stage IV - Surveillance",
       "target": "mortality",
+      "properties": {
+        "disease": "C50",
+        "stage": 4,
+        "programme": 1,
+        "fit": true
+      },
       "transaction": {
         "description": "treated mortality rate",
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_mortality_rates",
-          "arguments": {
-            "disease": "C50",
-            "stage": 4,
-            "programme": 1,
-            "fit": true
-          }
-        }
+        "function": "serve_mortality_rates"
       }
     },
     {
@@ -865,14 +925,12 @@
     {
       "source": "recovered",
       "target": "mortality",
+      "properties": {
+        "country": 404
+      },
       "transaction": {
         "method": "file",
-        "kwargs": {
-          "server_function_name": "serve_lifetable_mortality",
-          "arguments": {
-            "country": 404
-          }
-        }
+        "function": "serve_lifetable_mortality"
       }
     }
   ]
