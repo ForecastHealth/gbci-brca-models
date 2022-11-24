@@ -12,6 +12,7 @@ comparisons = []
 [output]
 directory = "../tmp/"
 filetypes = [".zip", ".xlsx", ".html"]
+network_structure = [".png"]
 
 [[results]]
 label = "Assumptions per year"
@@ -131,3 +132,4 @@ aggfunc = "sum"
 values = ["value"]
 index = ["category"]
 columns = ["time"]
+
