@@ -6,7 +6,12 @@ timestamp = 2022-11-24T09:49:00
 
 [input]
 directory = "../gcbi-breast-cancer-model/input/"
-individual = ["gcbi_baseline.json"]
+individual = [
+  "gcbi_1_baseline.json",
+  "gcbi_2_earlyawareness.json",
+  "gcbi_3a_mammography.json",
+  "gcbi_3b_cbe.json"
+  ]
 comparisons = []
 
 [output]
