@@ -25,13 +25,13 @@ The models need to run for at least fifteen years, to demonstrate gradual scale-
 The baseline scenario models the current country situation. We model this as a pool of cases, some of which are undiagnosed, some of which are diagnosed at a certain stage (Stages I-IV). All cases may die, and treated cases may recover, or receive palliative care. From this baseline scenario, we modify how many people are diagnosed, and the stage at which they are diagnosed. 
 
 ## 2 - The early awareness campaign scenario
-Compared to the [Baseline scenario](#1-the-baseline-scenario), we model the costs and effects of the early awareness campaign. The effects are a shift in stage at diagnosis, an increased incidence.
+Compared to the [Baseline scenario](#1---the-baseline-scenario), we model the costs and effects of the early awareness campaign. The effects are a shift in stage at diagnosis, an increased incidence.
 
 ### Stage Shift and increased diagnoses
 Over the first five years of the implementation, we implement the early awareness campaign. Over this time, we see an increased proportion of diagnoses which are in early stages (Stage I and II breast cancer), and proportionally fewer cases which are in later stages (Stage III and IV). We also find more cases of breast cancer, because we are raising awareness.
 
 ## 3 - The screening scenarios
-Compared to the [early awareness campaign scenario](#2-the-early-awareness-campaign-scenario), there are no changes to the mechanisms. However, we assume a strong stage shift, increased diagnoses, and new costing structures. Importantly, we make the assumption that screening scenarios *must happen after an early awareness campaign*. Therefore, these costs and benefits are not alternative strategies, but potential strategies after the original early awareness campaign has taken place. 
+Compared to the [early awareness campaign scenario](#2---the-early-awareness-campaign-scenario), there are no changes to the mechanisms. However, we assume a strong stage shift, increased diagnoses, and new costing structures. Importantly, we make the assumption that screening scenarios *must happen after an early awareness campaign*. Therefore, these costs and benefits are not alternative strategies, but potential strategies after the original early awareness campaign has taken place. 
 
 ### 3a - Mammography led screening
 Mammography led screening has the strongest stage shift (the highest proportion of cancers diagnosed in early stages), the largest number of cases diagnosed, and the largest costs. 
