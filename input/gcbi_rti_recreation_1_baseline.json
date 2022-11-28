@@ -14,7 +14,7 @@
   },
   "nodes": [
     {
-      "id": "population",
+      "id": "Population",
       "role": "generator",
       "properties": {
         "country": 404
@@ -25,7 +25,7 @@
       }
     },
     {
-      "id": "incidence",
+      "id": "Incidence",
       "role": "filter",
       "hooks": [
         "ageing"
@@ -431,8 +431,8 @@
   ],
   "links": [
     {
-      "source": "population",
-      "target": "incidence",
+      "source": "Population",
+      "target": "Incidence",
       "properties": {
         "country": 404,
         "disease": "C50"
@@ -443,10 +443,24 @@
       }
     },
     {
-      "source": "incidence",
+      "source": "Population",
+      "target": "Screening",
+      "transaction": {
+        "description": [
+          "Proportion (minus Incidence) of screened Population",
+          "Screened Population is..."
+        ],
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0
+        }
+      }
+    },
+    {
+      "source": "Incidence",
       "target": "Clinical Presentation",
       "transaction": {
-        "description": "Proportion of incidence diagnosed by clinical presentation",
+        "description": "Proportion of Incidence diagnosed by clinical presentation",
         "method": "synthetic",
         "kwargs": {
           "y_0": 1
@@ -454,10 +468,10 @@
       }
     },
     {
-      "source": "incidence",
+      "source": "Incidence",
       "target": "Screening",
       "transaction": {
-        "description": "Proportion of incidence diagnosed through screening",
+        "description": "Proportion of Incidence diagnosed through screening",
         "method": "synthetic",
         "kwargs": {
           "y_0": 0
