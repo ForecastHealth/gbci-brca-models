@@ -8,13 +8,13 @@ We dictate the running of the model through assumptions, which are obtained thro
 These assumptions may change over time, in which case they will be documented in the commits.
 
 ## Scenarios: An overview
-There are four scenarios which are modelled:
+There are four scenarios which are modelled. These scenarios are incremental, meaning that 2 must happen after 1, and 3 must happen after 2. 
 1. Baseline
 2. Baseline + early awareness campaign
 3. Baseline + early awareness campaign + screening
     a. Where screening is led by mammography
     b. Where screening is led by clinical breast exam
-
+	
 These four scenarios can be compared incrementally, meaning you can subtract a scenario from another scenario to see the incremental difference in costs and health impacts.
 - Scenario 2 - Scenario 1 = Incremental costs and impact of early awareness campaigns
 - Scenario 3 - Scenario 2 = Incremental costs and impact of screening
