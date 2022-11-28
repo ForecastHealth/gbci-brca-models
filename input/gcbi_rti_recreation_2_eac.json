@@ -2,11 +2,11 @@
   "metadata": {
     "author": "Rory Watts",
     "timestamp": "2022-11-14T16:32:00",
-    "description": "RTI Kenya Model Recreation - Baseline"
+    "description": "RTI Kenya Model Recreation - Early Awareness Campaign"
   },
   "output": {
     "directory": "../tmp/",
-    "label": "RTI_recreation_baseline"
+    "label": "RTI_recreation_2_eac"
   },
   "globals": {
     "start": 2021,
@@ -32,128 +32,97 @@
       ]
     },
     {
-      "id": "Stage I - Undiagnosed",
+      "id": "Clinical Presentation",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
+      "views": {
+        "services": [
+          "Diagnosis without MG = Clinical presentation (Level 1), breast"
+        ]
+      }
+    },
+    {
+      "id": "Screening",
+      "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
+      "services": [
+        "Screening with MG (Level 2), breast",
+        "Diagnosis after MG (Level 2), breast"
+      ]
+    },
+    {
+      "id": "Diagnosed at Stage I",
+      "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "hooks": [
         "ageing"
       ],
       "views": {
         "disability": {
           "weight": 0.29
-        }
+        },
+        "services": []
       }
     },
     {
-      "id": "Stage II - Undiagnosed",
+      "id": "Diagnosed at Stage II",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "hooks": [
         "ageing"
       ],
       "views": {
         "disability": {
           "weight": 0.29
-        }
+        },
+        "services": []
       }
     },
     {
-      "id": "Stage III - Undiagnosed",
+      "id": "Diagnosed at Stage III",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "hooks": [
         "ageing"
       ],
       "views": {
         "disability": {
           "weight": 0.29
-        }
+        },
+        "services": []
       }
     },
     {
-      "id": "Stage IV - Undiagnosed",
+      "id": "Diagnosed at Stage IV",
       "role": "filter",
+      "properties": {
+        "country": 404,
+        "disease": "C50"
+      },
       "hooks": [
         "ageing"
       ],
       "views": {
         "disability": {
           "weight": 0.54
-        }
+        },
+        "services": []
       }
-    },
-    {
-      "id": "Stage I - Diagnosed",
-      "role": "filter",
-      "properties": {
-        "country": 404,
-        "disease": "C50"
-      },
-      "views": {
-        "services": [
-          "Diagnosis without MG = Clinical presentation (Level 1), breast"
-        ],
-        "disability": {
-          "weight": 0.29
-        }
-      },
-      "hooks": [
-        "ageing"
-      ]
-    },
-    {
-      "id": "Stage II - Diagnosed",
-      "role": "filter",
-      "properties": {
-        "country": 404,
-        "disease": "C50"
-      },
-      "views": {
-        "services": [
-          "Diagnosis without MG = Clinical presentation (Level 1), breast"
-        ],
-        "disability": {
-          "weight": 0.29
-        }
-      },
-      "hooks": [
-        "ageing"
-      ]
-    },
-    {
-      "id": "Stage III - Diagnosed",
-      "role": "filter",
-      "properties": {
-        "country": 404,
-        "disease": "C50"
-      },
-      "views": {
-        "services": [
-          "Diagnosis without MG = Clinical presentation (Level 1), breast"
-        ],
-        "disability": {
-          "weight": 0.29
-        }
-      },
-      "hooks": [
-        "ageing"
-      ]
-    },
-    {
-      "id": "Stage IV - Diagnosed",
-      "role": "filter",
-      "properties": {
-        "country": 404,
-        "disease": "C50"
-      },
-      "views": {
-        "services": [
-          "Diagnosis without MG = Clinical presentation (Level 1), breast"
-        ],
-        "disability": {
-          "weight": 0.54
-        }
-      },
-      "hooks": [
-        "ageing"
-      ]
     },
     {
       "id": "Stage I - Staging",
@@ -496,7 +465,109 @@
     },
     {
       "source": "incidence",
-      "target": "Stage I - Undiagnosed",
+      "target": "Clinical Presentation",
+      "transaction": {
+        "description": "Proportion of incidence diagnosed by clinical presentation",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 1
+        }
+      }
+    },
+    {
+      "source": "incidence",
+      "target": "Screening",
+      "transaction": {
+        "description": "Proportion of incidence diagnosed through screening",
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0
+        }
+      }
+    },
+    {
+      "source": "Clinical Presentation",
+      "target": "Diagnosed at Stage I",
+      "transaction": {
+        "description": [
+          "Stage distribution Stage I, affected by EAC",
+          "Early stage increases to 0.47 in total",
+          "Current early stage is 0.31",
+          "Current Stage I is 0.05",
+          "Therefore, Stage I after EAC = 0.47 * (0.05 / 0.31) = 0.0758"
+        ],
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.05,
+          "y_1": 0.0758,
+          "x_0": 1,
+          "x_1": 6
+        }
+      }
+    },
+    {
+      "source": "Clinical Presentation",
+      "target": "Diagnosed at Stage II",
+      "transaction": {
+        "description": [
+          "Stage distribution Stage II, affected by EAC",
+          "Early stage increases to 0.47 in total",
+          "Current early stage is 0.31",
+          "Current Stage II is 0.26",
+          "Therefore, Stage II after EAC = 0.47 * (0.26 / 0.31) = 0.394"
+        ],
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.26,
+          "y_1": 0.394,
+          "x_0": 1,
+          "x_1": 6
+        }
+      }
+    },
+    {
+      "source": "Clinical Presentation",
+      "target": "Diagnosed at Stage III",
+      "transaction": {
+        "description": [
+          "Stage distribution Stage III, affected by EAC",
+          "Late stage decreases to 0.53 in total",
+          "Current late stage is 0.69",
+          "Current Stage III is 0.31",
+          "Therefore, Stage III after EAC = 0.53 * (0.31 / 0.69) = 0.238"
+        ],
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.31,
+          "y_1": 0.238,
+          "x_0": 1,
+          "x_1": 6
+        }
+      }
+    },
+    {
+      "source": "Clinical Presentation",
+      "target": "Diagnosed at Stage IV",
+      "transaction": {
+        "description": [
+          "Stage distribution Stage IV, affected by EAC",
+          "Late stage decreases to 0.53 in total",
+          "Current late stage is 0.69",
+          "Current Stage IV is 0.38",
+          "Therefore, Stage IV after EAC = 0.53 * (0.38 / 0.69) = 0.292"
+        ],
+        "method": "synthetic",
+        "kwargs": {
+          "y_0": 0.38,
+          "y_1": 0.292,
+          "x_0": 1,
+          "x_1": 6
+        }
+      }
+    },
+    {
+      "source": "Screening",
+      "target": "Diagnosed at Stage I",
       "transaction": {
         "description": "Stage distribution Stage I",
         "method": "synthetic",
@@ -506,8 +577,8 @@
       }
     },
     {
-      "source": "incidence",
-      "target": "Stage II - Undiagnosed",
+      "source": "Screening",
+      "target": "Diagnosed at Stage II",
       "transaction": {
         "description": "Stage distribution Stage II",
         "method": "synthetic",
@@ -517,8 +588,8 @@
       }
     },
     {
-      "source": "incidence",
-      "target": "Stage III - Undiagnosed",
+      "source": "Screening",
+      "target": "Diagnosed at Stage III",
       "transaction": {
         "description": "Stage distribution Stage III",
         "method": "synthetic",
@@ -528,8 +599,8 @@
       }
     },
     {
-      "source": "incidence",
-      "target": "Stage IV - Undiagnosed",
+      "source": "Screening",
+      "target": "Diagnosed at Stage IV",
       "transaction": {
         "description": "Stage distribution Stage IV",
         "method": "synthetic",
@@ -539,90 +610,46 @@
       }
     },
     {
-      "source": "Stage I - Undiagnosed",
-      "target": "Stage I - Diagnosed",
-      "transaction": {
-        "description": "coverage rate without screening",
-        "method": "synthetic",
-        "kwargs": {
-          "y_0": 0.6
-        }
-      }
-    },
-    {
-      "source": "Stage II - Undiagnosed",
-      "target": "Stage II - Diagnosed",
-      "transaction": {
-        "description": "coverage rate without screening",
-        "method": "synthetic",
-        "kwargs": {
-          "y_0": 0.6
-        }
-      }
-    },
-    {
-      "source": "Stage III - Undiagnosed",
-      "target": "Stage III - Diagnosed",
-      "transaction": {
-        "description": "coverage rate without screening",
-        "method": "synthetic",
-        "kwargs": {
-          "y_0": 0.6
-        }
-      }
-    },
-    {
-      "source": "Stage IV - Undiagnosed",
-      "target": "Stage IV - Diagnosed",
-      "transaction": {
-        "description": "coverage rate without screening",
-        "method": "synthetic",
-        "kwargs": {
-          "y_0": 0.6
-        }
-      }
-    },
-    {
-      "source": "Stage I - Diagnosed",
+      "source": "Diagnosed at Stage I",
       "target": "Stage I - Staging",
       "transaction": {
         "description": "proportion moving from diagnosis to staging",
         "method": "synthetic",
         "kwargs": {
-          "y_0": 1
+          "y_0": 0.6
         }
       }
     },
     {
-      "source": "Stage II - Diagnosed",
+      "source": "Diagnosed at Stage II",
       "target": "Stage II - Staging",
       "transaction": {
         "description": "proportion moving from diagnosis to staging",
         "method": "synthetic",
         "kwargs": {
-          "y_0": 1
+          "y_0": 0.6
         }
       }
     },
     {
-      "source": "Stage III - Diagnosed",
+      "source": "Diagnosed at Stage III",
       "target": "Stage III - Staging",
       "transaction": {
         "description": "proportion moving from diagnosis to staging",
         "method": "synthetic",
         "kwargs": {
-          "y_0": 1
+          "y_0": 0.6
         }
       }
     },
     {
-      "source": "Stage IV - Diagnosed",
+      "source": "Diagnosed at Stage IV",
       "target": "Stage IV - Staging",
       "transaction": {
-        "description": "proportion moving from diagnosis to staging",
+        "description": "proportion moving from diagnosis staging",
         "method": "synthetic",
         "kwargs": {
-          "y_0": 1
+          "y_0": 0.6
         }
       }
     },
@@ -756,66 +783,6 @@
         "kwargs": {
           "y_0": 1
         }
-      }
-    },
-    {
-      "source": "Stage I - Undiagnosed",
-      "target": "mortality",
-      "properties": {
-        "disease": "C50",
-        "stage": 1,
-        "programme": 0,
-        "fit": true
-      },
-      "transaction": {
-        "description": "undiagnosed mortality rate",
-        "method": "file",
-        "function": "serve_mortality_rates"
-      }
-    },
-    {
-      "source": "Stage II - Undiagnosed",
-      "target": "mortality",
-      "properties": {
-        "disease": "C50",
-        "stage": 2,
-        "programme": 0,
-        "fit": true
-      },
-      "transaction": {
-        "description": "undiagnosed mortality rate",
-        "method": "file",
-        "function": "serve_mortality_rates"
-      }
-    },
-    {
-      "source": "Stage III - Undiagnosed",
-      "target": "mortality",
-      "properties": {
-        "disease": "C50",
-        "stage": 3,
-        "programme": 0,
-        "fit": true
-      },
-      "transaction": {
-        "description": "undiagnosed mortality rate",
-        "method": "file",
-        "function": "serve_mortality_rates"
-      }
-    },
-    {
-      "source": "Stage IV - Undiagnosed",
-      "target": "mortality",
-      "properties": {
-        "disease": "C50",
-        "stage": 4,
-        "programme": 0,
-        "fit": true
-      },
-      "transaction": {
-        "description": "undiagnosed mortality rate",
-        "method": "file",
-        "function": "serve_mortality_rates"
       }
     },
     {

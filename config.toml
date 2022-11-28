@@ -7,10 +7,10 @@ timestamp = 2022-11-24T09:49:00
 [input]
 directory = "../gcbi-breast-cancer-model/input/"
 individual = [
-  "gcbi_1_baseline.json",
-  "gcbi_2_earlyawareness.json",
-  "gcbi_3a_mammography.json",
-  "gcbi_3b_cbe.json"
+  "gcbi_rti_recreation_1_baseline.json",
+  "gcbi_rti_recreation_2_eac.json",
+  "gcbi_rti_recreation_3a_mg.json",
+  "gcbi_rti_recreation_3b_cbe.json"
   ]
 comparisons = []
 
