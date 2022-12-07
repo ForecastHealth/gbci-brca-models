@@ -1,9 +1,9 @@
-# GCBI Breast Cancer Models
-This is a document providing information about the GCBI Breast Cancer Models.
+# GBCI Breast Cancer Models
+This is a document providing information about the GBCI Breast Cancer Models.
 Note - these models require a set of Python utilities to run, which are not currently available to the public. 
 
 ## Overview
-The GCBI Breast Cancer model is a deterministic model which describes the costs and health impacts of implementing various early-detection strategies, including early-awareness campaigns, clinical breast examination, and mammographic screening. The model is deterministic, meaning that we dictate what will happen during the running of the model.
+The GBCI Breast Cancer model is a deterministic model which describes the costs and health impacts of implementing various early-detection strategies, including early-awareness campaigns, clinical breast examination, and mammographic screening. The model is deterministic, meaning that we dictate what will happen during the running of the model.
 We dictate the running of the model through assumptions, which are obtained through a review of the relevant literature, expert opinion, and calibrating the model to real-world observations.
 These assumptions may change over time, in which case they will be documented in the commits.
 
